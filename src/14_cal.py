@@ -20,7 +20,23 @@ and does the following:
 """
 
 
-
 import sys
 import calendar
 from datetime import datetime
+
+
+def getDate(num1=None, num2=None):
+        if num1 > 12 or num1 < 1:
+            return print('First entry must be greater than 0 and less than 13')
+        if type(num1) == int and num2 is None:
+            return print(calendar.month(2019, num1))
+        if type(num1) == str or type(num2) == str:
+            return print('Entries must be valid numbers.')
+        if type(num1) == bool or type(num2) == bool:
+            return print('Entries must be valid numbers.')
+        if type(num1) == int and type(num2) == int:
+            return print(calendar.month(num2, num1))
+        else:
+            return print(calendar.month(2019, datetime.today().month))
+
+print(getDate(0, 14))
